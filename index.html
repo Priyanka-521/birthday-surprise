@@ -156,6 +156,8 @@
         </div>
         <div class="celebration" id="celebration"></div>
     </div>
+    
+    <audio id="birthdayMusic" src="birthday.mp3" loop></audio>
 
     <script>
         const messages = [
@@ -178,6 +180,7 @@
         const cake = document.getElementById('cake');
         const flame = document.getElementById('flame');
         const celebration = document.getElementById('celebration');
+        const birthdayMusic = document.getElementById('birthdayMusic'); // Audio element
         let position = 50;
 
         function moveCharacter(direction) {
@@ -213,6 +216,7 @@
         function startCelebration() {
             flame.style.display = 'none';
             celebration.style.opacity = '1';
+            birthdayMusic.play();
             
             // Create confetti effect
             for (let i = 0; i < 50; i++) {
