@@ -36,15 +36,7 @@
         }
         #tiggle {
             left: 50px;
-            background-image: url('/blob/main/tiggle.png');
-            /* Placeholder for the blue character sprite */
-            filter: hue-rotate(240deg);
-        }
-        #mimosa {
-            left: 150px;
-            background-image: url('/blob/main/mimosa.png');
-            /* Placeholder for the black character sprite */
-            filter: brightness(0.8);
+            background-image: url('tiggle.png');
         }
         .message {
             position: absolute;
@@ -80,15 +72,6 @@
         }
         button:hover {
             transform: scale(1.1);
-        }
-        .door {
-            position: absolute;
-            width: 80px;
-            height: 160px;
-            background: #8b4513;
-            right: 100px;
-            bottom: 100px;
-            transition: all 0.5s;
         }
         .cake {
             position: absolute;
@@ -160,9 +143,7 @@
 <body>
     <div id="gameContainer">
         <div id="tiggle" class="character"></div>
-        <div id="mimosa" class="character"></div>
         <div class="message" id="message"></div>
-        <div class="door" id="door"></div>
         <div class="cake" id="cake">
             <div class="cake-base"></div>
             <div class="cake-top"></div>
@@ -179,7 +160,7 @@
     <script>
         const messages = [
             "Hey Tiggle! Ready for a journey?",
-            "3 years ago, we met on BGMI...",
+            "2 years ago, we met on BGMI...",
             "Your amazing voice and humour brought joy!",
             "Through every game, every chat...",
             "You've been such a special friend",
@@ -187,15 +168,13 @@
             "Who I can never get tired of talking to...",
             "Let's celebrate your special day!",
             "Time to cut the cake! 🎂",
-            "🎉 Happy Birthday, Nonnu! :p 🎈",
+            "🎉 Happy Birthday, Nonnu!😛🎈",
             "Thank you for being the best gaming buddy ♥"
         ];
 
         let currentStep = 0;
         const tiggle = document.getElementById('tiggle');
-        const mimosa = document.getElementById('mimosa');
         const messageElement = document.getElementById('message');
-        const door = document.getElementById('door');
         const cake = document.getElementById('cake');
         const flame = document.getElementById('flame');
         const celebration = document.getElementById('celebration');
@@ -211,7 +190,6 @@
             }
             
             tiggle.style.left = `${position}px`;
-            mimosa.style.left = `${position + 100}px`;
             
             if (currentStep >= 0 && currentStep < messages.length) {
                 messageElement.style.opacity = '0';
@@ -229,13 +207,11 @@
         }
 
         function showCake() {
-            door.style.opacity = '0';
             cake.style.opacity = '1';
         }
 
         function startCelebration() {
             flame.style.display = 'none';
-            mimosa.classList.add('clapping');
             celebration.style.opacity = '1';
             
             // Create confetti effect
@@ -256,7 +232,6 @@
         document.getElementById('leftBtn').addEventListener('click', () => moveCharacter('left'));
         document.getElementById('rightBtn').addEventListener('click', () => moveCharacter('right'));
 
-        // Add keyboard controls
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') moveCharacter('left');
             if (e.key === 'ArrowRight') moveCharacter('right');
